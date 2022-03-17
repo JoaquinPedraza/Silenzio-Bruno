@@ -6,6 +6,7 @@ const funkosController = (Funko) => {
     res.json(response);
   }
   
+  
   const postFunkos = async (req,res) => {
     const funko = new Funko(req.body);
     await funko.save();

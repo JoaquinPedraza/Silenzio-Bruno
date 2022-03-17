@@ -1,6 +1,7 @@
 const express = require ('express');
 const funkosController = require ('../controllers/funkosController');  
 
+
 const routes = (Funko) => {
   const funkoRouter = express.Router();
 
