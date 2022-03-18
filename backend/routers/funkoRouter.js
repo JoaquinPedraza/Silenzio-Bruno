@@ -1,23 +1,25 @@
-const express = require ('express');
-const funkosController = require ('../controllers/funkosController');  
+/* eslint-disable max-len */
+const express = require('express');
+const funkosController = require('../controllers/funkosController');
 
 
-const routes = (Funko) => {
+const funkoRouter = (Funko) => {
+  // eslint-disable-next-line new-cap
   const funkoRouter = express.Router();
 
-  const { getFunkos, postFunkos, getFunkoById, deleteFunkoById, putFunkos }= funkosController(Funko);
+  const {getFunkos, postFunkos, getFunkoById, deleteFunkoById, putFunkos}= funkosController(Funko);
 
   funkoRouter.route('/funkos')
-    .get( getFunkos)
-    .post(postFunkos)
+      .get( getFunkos)
+      .post(postFunkos);
 
   funkoRouter.route('/funkos/:funkoId')
-    .get( getFunkoById )
-    .put( putFunkos )
-    .delete( deleteFunkoById )
+      .get( getFunkoById )
+      .put( putFunkos )
+      .delete( deleteFunkoById );
 
 
   return funkoRouter;
- }
+};
 
- module.exports = routes;
+module.exports = funkoRouter;
