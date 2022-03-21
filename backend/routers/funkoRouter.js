@@ -1,25 +1,26 @@
-/* eslint-disable max-len */
-const express = require('express');
-const funkosController = require('../controllers/funkosController');
+const express = require ('express');
+const funkosController = require ('../controllers/funkosController');  
+
+const validator = require ('express-joi-validation').createValidator({});
+const funkoSchema = require ('..schema_validations/funkoSchema');
 
 
-const funkoRouter = (Funko) => {
-  // eslint-disable-next-line new-cap
+const routes = (Funko) => {
   const funkoRouter = express.Router();
 
-  const {getFunkos, postFunkos, getFunkoById, deleteFunkoById, putFunkos}= funkosController(Funko);
+  const { getFunkos, postFunkos, getFunkoById, deleteFunkoById, putFunkos }= funkosController(Funko);
 
   funkoRouter.route('/funkos')
-      .get( getFunkos)
-      .post(postFunkos);
+    .get( getFunkos)
+    .post(validator.body(funkoSchema),postFunkos)
 
   funkoRouter.route('/funkos/:funkoId')
-      .get( getFunkoById )
-      .put( putFunkos )
-      .delete( deleteFunkoById );
+    .get( getFunkoById )
+    .put( validator.body(funkoSchema),putFunkos )
+    .delete( deleteFunkoById )
 
 
   return funkoRouter;
-};
+ }
 
-module.exports = funkoRouter;
+ module.exports = routes;
