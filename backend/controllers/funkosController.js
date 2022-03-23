@@ -28,7 +28,7 @@ const funkosController = (Funko) => {
             category: body.category,
             ilimited: body.ilimited,
             price: body.price,
-            origin: body.origin,
+            collection: body.collection,
           },
         });
     res.status(202).json({message: 'The Funko has been update sucessfully', response});
