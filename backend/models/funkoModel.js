@@ -8,6 +8,6 @@ const funkoModel = new mongoose.Schema(
       price: {type: Number},
       collection: {type: String},
     },
-);
+)
 
 module.exports = mongoose.model('Funko', funkoModel);

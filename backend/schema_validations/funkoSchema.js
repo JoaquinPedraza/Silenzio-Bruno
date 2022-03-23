@@ -2,6 +2,7 @@
 const Joi = require('joi');
 const { message } = require('./userScheme');
 
+
 const funkoSchema = Joi.object(
   {
     name: Joi.string().min(3).max(30).required().message(
