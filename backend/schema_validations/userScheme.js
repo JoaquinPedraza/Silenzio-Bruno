@@ -3,20 +3,18 @@ const Joi = require('joi');
 
 const userScheme = Joi.object(
     {
-      firstName: Joi.string().alphanum().min(3).max(30).required().messages(
+      firstName: Joi.string().min(3).max(30).required().messages(
           {
             'string.base': 'El nombre tiene que ser un String',
-            'string.alphanum': 'El nombre tiene que ser alfanumérico',
             'string.empty': 'El nombre no puede estar vacío',
             'any.required': 'El nombre es un campo requerido',
             'string.min': 'El nombre debe tener como minimo 3 carácteres',
             'string.max': 'El nombre debe tener como maximo 30 caracteres',
           },
       ),
-      lastName: Joi.string().alphanum().min(3).max(30).required().messages(
+      lastName: Joi.string().min(3).max(30).required().messages(
           {
             'string.base': 'El apellido tiene que ser un String',
-            'string.alphanum': 'El apellido tiene que ser alfanumérico',
             'string.empty': 'El apellido no puede estar vacío',
             'any.required': 'El apellido es un campo requerido',
             'string.min': 'El apellido debe tener como minimo 3 carácteres',
